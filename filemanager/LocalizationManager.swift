@@ -258,7 +258,25 @@ public final class LocalizationManager: ObservableObject {
             "preview_title": "預覽",
             "details_title": "詳細資料",
             "preview_placeholder": "選取項目以檢視其預覽或詳細資料",
-            "preview_unavailable": "無法預覽此檔案"
+            "preview_unavailable": "無法預覽此檔案",
+            
+            // About & Updates
+            "about_filemanager": "關於檔案總管",
+            "about_app_name": "Windows 11 檔案總管 (macOS 版)",
+            "about_version": "版本",
+            "about_build": "內部版本",
+            "about_author": "開發者",
+            "about_github": "GitHub 專案庫",
+            "about_updates": "軟體更新",
+            "update_check": "檢查更新",
+            "update_recheck": "重新檢查",
+            "update_checking": "正在檢查更新...",
+            "update_up_to_date": "您使用的已是最新版本",
+            "update_available": "發現新版本：%@",
+            "update_download": "前往下載更新",
+            "update_view_release": "查看 GitHub Release",
+            "update_failed": "檢查更新失敗：%@",
+            "update_idle_hint": "點擊下方按鈕以檢查 GitHub 最新版本。"
         ],
         
         // MARK: Simplified Chinese (简体中文)
@@ -410,7 +428,25 @@ public final class LocalizationManager: ObservableObject {
             "preview_title": "预览",
             "details_title": "详细信息",
             "preview_placeholder": "选择项目以查看其预览或详细信息",
-            "preview_unavailable": "无法预览此文件"
+            "preview_unavailable": "无法预览此文件",
+            
+            // About & Updates
+            "about_filemanager": "关于文件资源管理器",
+            "about_app_name": "Windows 11 文件资源管理器 (macOS 版)",
+            "about_version": "版本",
+            "about_build": "内部版本",
+            "about_author": "开发者",
+            "about_github": "GitHub 仓库",
+            "about_updates": "软件更新",
+            "update_check": "检查更新",
+            "update_recheck": "重新检查",
+            "update_checking": "正在检查更新...",
+            "update_up_to_date": "您使用的已是最新版本",
+            "update_available": "发现新版本：%@",
+            "update_download": "前往下载更新",
+            "update_view_release": "查看 GitHub Release",
+            "update_failed": "检查更新失败：%@",
+            "update_idle_hint": "点击下方按钮以检查 GitHub 最新版本。"
         ],
         
         // MARK: English
@@ -562,7 +598,25 @@ public final class LocalizationManager: ObservableObject {
             "preview_title": "Preview",
             "details_title": "Details",
             "preview_placeholder": "Select an item to view its preview or details",
-            "preview_unavailable": "No preview available for this file"
+            "preview_unavailable": "No preview available for this file",
+            
+            // About & Updates
+            "about_filemanager": "About File Manager",
+            "about_app_name": "Windows 11 File Manager for macOS",
+            "about_version": "Version",
+            "about_build": "Build",
+            "about_author": "Developer",
+            "about_github": "GitHub Repository",
+            "about_updates": "Software Update",
+            "update_check": "Check for Updates",
+            "update_recheck": "Check Again",
+            "update_checking": "Checking for updates...",
+            "update_up_to_date": "You're up to date",
+            "update_available": "New version available: %@",
+            "update_download": "Download Update",
+            "update_view_release": "View on GitHub",
+            "update_failed": "Failed to check for updates: %@",
+            "update_idle_hint": "Click the button below to check for GitHub updates."
         ],
         
         // MARK: Japanese (日本語)
@@ -714,7 +768,25 @@ public final class LocalizationManager: ObservableObject {
             "preview_title": "プレビュー",
             "details_title": "詳細",
             "preview_placeholder": "項目を選択するとプレビューまたは詳細が表示されます",
-            "preview_unavailable": "このファイルのプレビューは利用できません"
+            "preview_unavailable": "このファイルのプレビューは利用できません",
+            
+            // About & Updates
+            "about_filemanager": "ファイルマネージャーについて",
+            "about_app_name": "Windows 11 ファイルマネージャー (macOS 版)",
+            "about_version": "バージョン",
+            "about_build": "ビルド",
+            "about_author": "開発者",
+            "about_github": "GitHub リポジトリ",
+            "about_updates": "ソフトウェアの更新",
+            "update_check": "アップデートを確認",
+            "update_recheck": "再確認",
+            "update_checking": "アップデートを確認中...",
+            "update_up_to_date": "最新バージョンです",
+            "update_available": "新しいバージョンがあります: %@",
+            "update_download": "アップデートをダウンロード",
+            "update_view_release": "GitHub で確認",
+            "update_failed": "アップデートの確認に失敗しました: %@",
+            "update_idle_hint": "下のボタンをクリックして GitHub の最新情報を確認します。"
         ]
     ]
 }

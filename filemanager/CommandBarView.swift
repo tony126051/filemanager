@@ -332,6 +332,15 @@ public struct CommandBarView: View {
             ) {
                 viewModel.showProperties(for: nil)
             }
+            
+            // About dialog button
+            ToolbarIconButton(
+                icon: "questionmark.circle",
+                tooltip: lang.tr("about_filemanager"),
+                isEnabled: true
+            ) {
+                viewModel.showingAboutDialog = true
+            }
         }
         .padding(.horizontal, 10)
         .frame(height: 36)

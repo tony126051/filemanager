@@ -39,6 +39,8 @@ public final class ExplorerViewModel: ObservableObject {
     @Published public var renamingItem: FileItem? = nil
     @Published public var renameInput: String = ""
     
+    @Published public var showingAboutDialog: Bool = false
+    
     @Published public var statusMessage: String? = nil
     
     public init() {

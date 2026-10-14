@@ -81,6 +81,14 @@ public struct ContentView: View {
                 }
             )
         }
+        .sheet(isPresented: $viewModel.showingAboutDialog) {
+            AboutDialogView {
+                viewModel.showingAboutDialog = false
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("ShowAboutDialog"))) { _ in
+            viewModel.showingAboutDialog = true
+        }
         // Keyboard Shortcuts
         .background(
             Group {

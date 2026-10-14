@@ -16,6 +16,11 @@ struct filemanagerApp: App {
         .windowStyle(.hiddenTitleBar)
         .commands {
             SidebarCommands()
+            CommandGroup(replacing: .appInfo) {
+                Button(lang.tr("about_filemanager")) {
+                    NotificationCenter.default.post(name: NSNotification.Name("ShowAboutDialog"), object: nil)
+                }
+            }
             CommandMenu(lang.tr("language")) {
                 ForEach(AppLanguage.allCases) { item in
                     Button(action: {
