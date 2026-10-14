@@ -176,38 +176,40 @@ struct filemanagerTests {
     }
 
     @Test func testMultiSelectionOperations() throws {
-        let tempDir = FileManager.default.temporaryDirectory.appendingPathComponent("multi_sel_test_\(UUID().uuidString)")
+        let tempDir = FileManager.default.temporaryDirectory.appendingPathComponent("multi_sel_test_\(UUID().uuidString)").resolvingSymlinksInPath()
         try FileManager.default.createDirectory(at: tempDir, withIntermediateDirectories: true)
         defer {
             try? FileManager.default.removeItem(at: tempDir)
         }
         
         let fs = FileSystemManager.shared
-        let u1 = try fs.createFile(in: tempDir, name: "item1.txt")
-        let u2 = try fs.createFile(in: tempDir, name: "item2.txt")
-        let u3 = try fs.createFile(in: tempDir, name: "item3.txt")
-        let u4 = try fs.createFile(in: tempDir, name: "item4.txt")
+        let u1 = try fs.createFile(in: tempDir, name: "item1.txt").resolvingSymlinksInPath()
+        let u2 = try fs.createFile(in: tempDir, name: "item2.txt").resolvingSymlinksInPath()
+        let u3 = try fs.createFile(in: tempDir, name: "item3.txt").resolvingSymlinksInPath()
+        let u4 = try fs.createFile(in: tempDir, name: "item4.txt").resolvingSymlinksInPath()
         
         let tab = TabModel(initialURL: tempDir)
         tab.loadContents()
         
         let items = tab.displayedItems
         #expect(items.count == 4)
+        let item0URL = items[0].url
+        let item3URL = items[3].url
         
         // 1. Single click selection
         tab.select(item: items[0], isToggle: false, isRange: false)
         #expect(tab.selectedURLs.count == 1)
-        #expect(tab.selectedURLs.contains(u1))
-        #expect(tab.anchorURL == u1)
+        #expect(tab.selectedURLs.contains(item0URL))
+        #expect(tab.anchorURL == item0URL)
         
         // 2. Cmd/Ctrl Toggle selection
-        tab.select(item: items[2], isToggle: true, isRange: false)
+        tab.select(item: items[3], isToggle: true, isRange: false)
         #expect(tab.selectedURLs.count == 2)
-        #expect(tab.selectedURLs.contains(u1))
-        #expect(tab.selectedURLs.contains(u3))
-        #expect(tab.anchorURL == u3)
+        #expect(tab.selectedURLs.contains(item0URL))
+        #expect(tab.selectedURLs.contains(item3URL))
+        #expect(tab.anchorURL == item3URL)
         
-        // 3. Shift range selection from u3 to u0
+        // 3. Shift range selection from u3 to u0 (all 4 items)
         tab.select(item: items[0], isToggle: false, isRange: true)
         #expect(tab.selectedURLs.count == 4) // All items 0 to 3
         
@@ -259,5 +261,22 @@ struct filemanagerTests {
         tab.refresh()
         #expect(!FileManager.default.fileExists(atPath: f1.path))
         #expect(!FileManager.default.fileExists(atPath: f2.path))
+    }
+
+    @Test func testUpdateManagerVersionComparison() {
+        #expect(UpdateManager.isVersion("v1.0.1", newerThan: "1.0.0"))
+        #expect(UpdateManager.isVersion("1.1.0", newerThan: "1.0.9"))
+        #expect(UpdateManager.isVersion("2.0.0", newerThan: "1.9.9"))
+        #expect(!UpdateManager.isVersion("1.0.0", newerThan: "1.0.0"))
+        #expect(!UpdateManager.isVersion("v1.0.0", newerThan: "1.0.0"))
+        #expect(!UpdateManager.isVersion("0.9.9", newerThan: "1.0.0"))
+        #expect(UpdateManager.isVersion("1.0.0.1", newerThan: "1.0.0"))
+    }
+    
+    @Test func testAboutDialogStateInViewModel() {
+        let vm = ExplorerViewModel()
+        #expect(!vm.showingAboutDialog)
+        vm.showingAboutDialog = true
+        #expect(vm.showingAboutDialog)
     }
 }
