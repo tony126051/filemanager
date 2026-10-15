@@ -4,4 +4,6 @@ DerivedData/
 *.xcuserstate
 .DS_Store
 xcuserdata/
+*.profraw
+
 
